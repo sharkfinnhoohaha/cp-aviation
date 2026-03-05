@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnson Aviation Consulting | Strategic Planning</title>
+    
+    <!-- Fonts: Outfit for modern sans-serif, JetBrains Mono for aviation data/signs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        jacRed: '#DC2626',      // Johnson Aviation Red
+                        jacDark: '#111827',     // Deep text color
+                        jacLight: '#F9FAFB',    // Off-white background
+                        aviationYellow: '#FBBF24',
+                        runwayGray: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & Three.js via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Base styles and custom scrollbar */
+        body {
+            background-color: #ffffff;
+            color: #111827;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
+        ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #DC2626; }
+
+        /* Custom Cursor */
+        #cursor {
+            position: fixed;
+            top: 0; left: 0;
+            width: 16px; height: 16px;
+            background-color: rgba(220, 38, 38, 0.5); /* jacRed */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-hover {
+            width: 40px !important;
+            height: 40px !important;
+            background-color: transparent !important;
+            border: 1px solid #DC2626;
+        }
+
+        /* Thinner Hold Short Lines */
+        .hs-solid {
+            height: 4px;
+            background-color: #FBBF24;
+            border-radius: 1px;
+            width: 0%; /* Animated by GSAP */
+        }
+        .hs-dashed {
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #FBBF24, #FBBF24 24px, transparent 24px, transparent 48px);
+            border-radius: 1px;
+            width: 0%; /* Animated by GSAP */
+        }
+
+        /* Thin Runway Centerline Animation */
+        .runway-centerline {
+            background: repeating-linear-gradient(0deg, transparent, transparent 30px, #E5E7EB 30px, #E5E7EB 60px);
+            background-size: 100% 120px;
+            animation: moveCenterline 4s linear infinite;
+        }
+        @keyframes moveCenterline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 120px; }
+        }
+
+        /* Sequenced Flashing Lights (The Rabbit) */
+        .rabbit-light {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background-color: #E5E7EB;
+        }
+
+        /* PAPI Light Indicator */
+        .papi-white { background-color: #ffffff; border: 1px solid #D1D5DB; box-shadow: 0 0 4px rgba(255,255,255,0.8); }
+        .papi-red { background-color: #DC2626; box-shadow: 0 0 4px rgba(220,38,38,0.5); }
+
+        /* Glassmorphism panel for light mode */
+        .glass-panel-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Accurate Taxiway Sign styles (Black/Yellow) */
+        .sign-loc {
+            background-color: #000; border: 2px solid #FBBF24; color: #FBBF24;
+        }
+
+        /* Fly-in Animation Classes */
+        .fly-wrap {
+            overflow: hidden;
+            display: block;
+        }
+        .fly-text {
+            display: block;
+            transform: translateY(115%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-jacRed selection:text-white font-sans">
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-panel-light">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 interactive cursor-pointer" onclick="window.scrollTo(0,0)">
+                <!-- Modern Minimalist Red Logo -->
+                <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 90 L50 10 L90 90 Z" stroke="#DC2626" stroke-width="8" fill="none" stroke-linejoin="round"/>
+                    <path d="M30 60 L70 60" stroke="#DC2626" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+                <span class="font-sans font-bold text-lg tracking-widest uppercase text-jacDark">JAC</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-mono text-xs tracking-widest text-gray-500">
+                <a href="#specialty" class="hover:text-jacRed transition-colors interactive">SPECIALTY</a>
+                <a href="#services" class="hover:text-jacRed transition-colors interactive">SERVICES</a>
+                <a href="#about" class="hover:text-jacRed transition-colors interactive">ABOUT</a>
+            </div>
+            <a href="mailto:nick@jacair.com" class="font-mono text-xs font-semibold border border-jacRed text-jacRed px-4 py-2 hover:bg-jacRed hover:text-white transition-colors interactive rounded-sm">
+                CONTACT
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden pt-24 pb-12 bg-white">
+        <!-- Thin Animated Centerline -->
+        <div class="absolute inset-0 flex justify-center opacity-40 pointer-events-none">
+            <div class="w-[2px] h-full runway-centerline"></div>
+        </div>
+        
+        <div class="z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <!-- PAPI Indicator Decoration (Perfect Glide Slope: 2 White, 2 Red) -->
+            <div class="flex justify-center gap-2 mb-8 opacity-0 hero-fade transform translate-y-4">
+                <div class="w-3 h-3 rounded-full papi-white"></div>
+                <div class="w-3 h-3 rounded-full papi-white"></div>
+                <div class="w-3 h-3 rounded-full papi-red"></div>
+                <div class="w-3 h-3 rounded-full papi-red"></div>
+            </div>
+
+            <div class="fly-wrap mb-6">
+                <h1 class="fly-text hero-text text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-jacDark leading-[1.1]">
+                    Johnson Aviation
+                </h1>
+            </div>
+            <div class="fly-wrap mb-10">
+                <p class="fly-text hero-text text-base md:text-xl font-sans text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
+                    Strategic Land Use, Facilities, & Financial Planning for the Airport Industry.
+                </p>
+            </div>
+            
+            <!-- Immediate Selection Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 opacity-0 hero-fade transform translate-y-4">
+                <a href="#services" class="w-full sm:w-auto px-8 py-3 bg-jacRed text-white font-mono text-sm tracking-wider font-semibold rounded hover:bg-red-700 transition-colors interactive">
+                    SERVICES
+                </a>
+                <a href="#projects" class="w-full sm:w-auto px-8 py-3 bg-white text-jacDark border border-gray-300 font-mono text-sm tracking-wider font-semibold rounded hover:border-jacRed hover:text-jacRed transition-colors interactive">
+                    PROJECTS
+                </a>
+            </div>
+        </div>
+
+        <!-- Sequenced Approach Lighting (Rabbit) Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3">
+            <div class="rabbit-light" id="r1"></div>
+            <div class="rabbit-light" id="r2"></div>
+            <div class="rabbit-light" id="r3"></div>
+            <div class="rabbit-light" id="r4"></div>
+            <div class="rabbit-light" id="r5"></div>
+        </div>
+    </header>
+
+    <!-- Divider: Thin Hold Short Line -->
+    <div class="w-full bg-jacLight py-8 flex justify-center items-center overflow-hidden border-t border-gray-100">
+        <div class="w-full max-w-4xl px-4" id="hold-short-divider">
+            <div class="flex flex-col gap-1.5 w-full">
+                <div class="hs-solid"></div>
+                <div class="hs-solid"></div>
+                <div class="hs-dashed mt-1"></div>
+                <div class="hs-dashed"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Specialty is Airports Section -->
+    <section id="specialty" class="py-24 relative z-10 bg-jacLight">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center sign-loc px-2 py-0.5 mb-8">
+                <span class="font-mono text-sm font-bold">A</span>
+            </div>
+            <div class="fly-wrap mb-8">
+                <h2 class="fly-text scroll-fly text-3xl md:text-5xl font-bold font-sans text-jacDark tracking-tight">Our Specialty is Airports.</h2>
+            </div>
+            <div class="fly-wrap">
+                <p class="fly-text scroll-fly text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+                    We focus exclusively on the aviation sector. Our deep understanding of federal regulations, local zoning, and airport operations allows us to navigate complex projects from concept to completion. Whether it's maximizing land value, securing funding, or ensuring regulatory compliance, we speak the language of airports.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative z-10 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+                <div class="fly-wrap">
+                    <h2 class="fly-text scroll-fly text-3xl md:text-4xl font-bold font-sans text-jacDark">Core Capabilities</h2>
+                </div>
+                <!-- PAPI Decorative -->
+                <div class="flex gap-1">
+                    <div class="w-2 h-2 rounded-full papi-white"></div>
+                    <div class="w-2 h-2 rounded-full papi-white"></div>
+                    <div class="w-2 h-2 rounded-full papi-red"></div>
+                    <div class="w-2 h-2 rounded-full papi-red"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-jacLight p-8 border border-gray-100 hover:border-jacRed hover:shadow-md transition-all duration-300 group interactive">
+                    <div class="mb-8">
+                        <!-- Minimalist Thin Icon -->
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-sans mb-3 text-jacDark group-hover:text-jacRed transition-colors">Financial Planning</h3>
+                    <p class="text-gray-500 font-light leading-relaxed text-sm">Critical to creating a strategic long-term vision. We balance objectives with tenant needs, market demand, and operational realities while securing federal grant funding.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-jacLight p-8 border border-gray-100 hover:border-jacRed hover:shadow-md transition-all duration-300 group interactive">
+                    <div class="mb-8">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-sans mb-3 text-jacDark group-hover:text-jacRed transition-colors">Land Use Planning</h3>
+                    <p class="text-gray-500 font-light leading-relaxed text-sm">Providing expertise to cities, counties, and developers to ensure the highest and best use of land near airports, preserving compatibility and safety.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-jacLight p-8 border border-gray-100 hover:border-jacRed hover:shadow-md transition-all duration-300 group interactive">
+                    <div class="mb-8">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-sans mb-3 text-jacDark group-hover:text-jacRed transition-colors">Facility Planning</h3>
+                    <p class="text-gray-500 font-light leading-relaxed text-sm">Comprehensive assessment of airfield, terminal, and landside demand against real estate resources to upgrade, expand, or modify facilities.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-jacLight p-8 border border-gray-100 hover:border-jacRed hover:shadow-md transition-all duration-300 group interactive">
+                    <div class="mb-8">
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-sans mb-3 text-jacDark group-hover:text-jacRed transition-colors">Business & Policy</h3>
+                    <p class="text-gray-500 font-light leading-relaxed text-sm">Working on strategic plans, air service development, and operations analysis to optimize service and maximize revenue in a market-driven environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative z-10 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <div class="fly-wrap mb-6">
+                        <h2 class="fly-text scroll-fly text-3xl md:text-4xl font-bold font-sans text-jacDark">About JAC</h2>
+                    </div>
+                    <div class="w-12 h-1 bg-jacRed mb-8"></div>
+                    <div class="fly-wrap mb-6">
+                        <p class="fly-text scroll-fly text-gray-600 font-light leading-relaxed">
+                            Founded by Nick Johnson in 2004, Johnson Aviation is a certified Small Business Enterprise (SBE) providing leadership on high profile and contentious aviation projects. 
+                        </p>
+                    </div>
+                    <div class="fly-wrap">
+                        <p class="fly-text scroll-fly text-gray-600 font-light leading-relaxed">
+                            Our work at Los Angeles International Airport (LAX) and San Diego International Airport cleared the way for multi-billion-dollar development programs. We understand the unique challenges of airside and landside development.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="p-6 border border-gray-100 bg-jacLight flex flex-col items-center justify-center text-center">
+                        <span class="text-3xl font-bold text-jacRed mb-2 font-mono">20+</span>
+                        <span class="text-xs tracking-widest text-gray-500 font-mono">YEARS EXPERIENCE</span>
+                    </div>
+                    <div class="p-6 border border-gray-100 bg-jacLight flex flex-col items-center justify-center text-center">
+                        <span class="text-3xl font-bold text-jacRed mb-2 font-mono">SBE</span>
+                        <span class="text-xs tracking-widest text-gray-500 font-mono">CERTIFIED</span>
+                    </div>
+                    <div class="p-6 border border-gray-100 bg-jacLight flex flex-col items-center justify-center text-center col-span-2">
+                        <span class="text-sm font-semibold text-jacDark mb-2">Agency Coordination</span>
+                        <span class="text-xs text-gray-500">Extensive experience partnering with the FAA, Caltrans, and local municipalities.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="w-full bg-white flex justify-center items-center py-4 border-t border-gray-100"></div>
+
+    <!-- 3D Interactive Case Study Section (Light Mode) -->
+    <section id="projects" class="relative h-[80svh] w-full overflow-hidden bg-[#F3F4F6] cursor-move interactive border-y border-gray-200">
+        <!-- Three.js Canvas Container -->
+        <div id="canvas-container" class="absolute inset-0"></div>
+        
+        <!-- Overlay UI -->
+        <div class="absolute inset-0 pointer-events-none flex items-center p-6 md:p-16 z-10">
+            <div class="max-w-md pointer-events-auto glass-panel-light p-8 rounded shadow-lg cs-ui transform translate-y-8 opacity-0">
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-2 h-2 rounded-full bg-jacRed animate-pulse"></div>
+                    <span class="font-mono text-xs tracking-widest text-gray-500 uppercase">Interactive Case Study</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-sans font-bold mb-4 text-jacDark">Ontario Int'l Transfer</h2>
+                <p class="text-gray-600 font-light text-sm mb-6 leading-relaxed">
+                    Johnson Aviation acted as the lead consultant managing the transfer of ONT from LAWA to the OIAA. We subsequently spearheaded the <strong class="text-jacDark font-medium">$300M Capital Improvement Program</strong> and Guardian Aviation FBO.
+                </p>
+                <div class="text-[10px] font-mono text-gray-400 flex items-center gap-2">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l7 7 7-7"/></svg>
+                    DRAG/MOVE MOUSE TO EXPLORE MODEL
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Clean Runway Marking -->
+    <footer class="relative w-full bg-white overflow-hidden flex flex-col justify-start items-center pt-24 pb-12">
+        <div class="text-center z-20 mb-16 px-4 interactive">
+            <h2 class="text-3xl md:text-4xl font-bold font-sans text-jacDark mb-6 tracking-tight">Ready for Departure.</h2>
+            <a href="mailto:nick@jacair.com" class="text-xl md:text-2xl font-mono text-jacRed hover:text-red-800 transition-colors block mb-6">nick@jacair.com</a>
+            <p class="text-gray-500 font-mono text-xs tracking-widest">818-606-3560 <span class="mx-3 text-gray-300">|</span> AGOURA HILLS, CA</p>
+        </div>
+        
+        <!-- Subtle Thin Runway graphic -->
+        <div class="w-full max-w-xl mx-auto flex flex-col items-center opacity-60 pointer-events-none">
+            <!-- Centerline -->
+            <div class="w-[2px] h-24 bg-gray-200 mb-4" style="background: repeating-linear-gradient(0deg, #E5E7EB, #E5E7EB 10px, transparent 10px, transparent 20px);"></div>
+            <!-- Numbers -->
+            <div class="text-gray-300 text-6xl font-mono font-bold tracking-tighter leading-none flex items-start">
+                24<span class="text-4xl mt-1 ml-1">R</span>
+            </div>
+            <!-- Threshold bars -->
+            <div class="flex gap-2 mt-4">
+                <div class="w-2 h-16 bg-gray-200"></div>
+                <div class="w-2 h-16 bg-gray-200"></div>
+                <div class="w-2 h-16 bg-gray-200"></div>
+                <div class="w-6"></div>
+                <div class="w-2 h-16 bg-gray-200"></div>
+                <div class="w-2 h-16 bg-gray-200"></div>
+                <div class="w-2 h-16 bg-gray-200"></div>
+            </div>
+        </div>
+
+        <p class="text-gray-400 font-sans text-[10px] mt-16 uppercase tracking-widest">© 2026 Johnson Aviation Consulting. All rights reserved.</p>
+    </footer>
+
+    <!-- Logic and Animations -->
+    <script>
+        window.addEventListener('load', () => {
+            
+            // --- 1. Custom Cursor ---
+            const cursor = document.getElementById('cursor');
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            
+            // Add touch support for the cursor update (useful for the 3D canvas interaction on mobile)
+            const updateMousePosition = (x, y) => {
+                mouseX = x;
+                mouseY = y;
+                gsap.to(cursor, { x: mouseX, y: mouseY, duration: 0.1, ease: "power2.out" });
+            };
+
+            document.addEventListener('mousemove', (e) => updateMousePosition(e.clientX, e.clientY));
+            document.addEventListener('touchmove', (e) => updateMousePosition(e.touches[0].clientX, e.touches[0].clientY), {passive: true});
+
+            const interactives = document.querySelectorAll('.interactive, a, button');
+            interactives.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+            });
+
+            // --- 2. Rabbit Sequence Animation (Hero) ---
+            const rabbitLights = [
+                document.getElementById('r1'),
+                document.getElementById('r2'),
+                document.getElementById('r3'),
+                document.getElementById('r4'),
+                document.getElementById('r5')
+            ];
+            
+            let rabbitIndex = 0;
+            setInterval(() => {
+                // Reset all
+                rabbitLights.forEach(light => {
+                    light.style.backgroundColor = '#E5E7EB';
+                    light.style.boxShadow = 'none';
+                });
+                // Light current
+                if (rabbitLights[rabbitIndex]) {
+                    rabbitLights[rabbitIndex].style.backgroundColor = '#DC2626';
+                    rabbitLights[rabbitIndex].style.boxShadow = '0 0 6px rgba(220,38,38,0.6)';
+                }
+                rabbitIndex = (rabbitIndex + 1) % (rabbitLights.length + 2); // Add pause at the end
+            }, 150);
+
+            // --- 3. GSAP ScrollTrigger Animations ---
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Intro Animation
+            gsap.to('.hero-fade', {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.out",
+                delay: 0.1
+            });
+
+            gsap.to('.hero-text', {
+                y: "0%",
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power4.out",
+                delay: 0.2
+            });
+
+            // Scroll Fly-in Texts
+            gsap.utils.toArray('.scroll-fly').forEach(text => {
+                gsap.to(text, {
+                    scrollTrigger: {
+                        trigger: text.closest('.fly-wrap'),
+                        start: "top 90%",
+                    },
+                    y: "0%",
+                    duration: 1,
+                    ease: "power4.out"
+                });
+            });
+
+            // Hold Short Line Animation (Now a simple divider trigger, not pinned)
+            gsap.to(".hs-solid, .hs-dashed", {
+                scrollTrigger: {
+                    trigger: "#hold-short-divider",
+                    start: "top 85%",
+                },
+                width: "100%", 
+                duration: 1.5, 
+                stagger: 0.2, 
+                ease: "power2.out"
+            });
+
+            // Services Cards Fade
+            gsap.fromTo(".service-card", 
+                { y: 50, opacity: 0 },
+                {
+                    scrollTrigger: {
+                        trigger: "#services",
+                        start: "top 85%",
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out"
+                }
+            );
+
+            // Case Study UI Reveal
+            gsap.to(".cs-ui", {
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top 60%",
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+
+            // --- 4. Three.js Interactive Case Study (Light Mode) ---
+            const init3DScene = () => {
+                const container = document.getElementById('canvas-container');
+                
+                const scene = new THREE.Scene();
+                // Light background matching Tailwind's #F3F4F6
+                scene.background = new THREE.Color(0xF3F4F6);
+                scene.fog = new THREE.FogExp2(0xF3F4F6, 0.03);
+
+                const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.set(0, 15, 30);
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
+
+                // Grid (Blueprint feel - light gray)
+                const grid = new THREE.GridHelper(100, 50, 0xE5E7EB, 0xD1D5DB);
+                grid.position.y = -0.1;
+                scene.add(grid);
+
+                // Runway
+                const rwGeo = new THREE.PlaneGeometry(4, 80);
+                const rwMat = new THREE.MeshBasicMaterial({ color: 0xE5E7EB });
+                const runway = new THREE.Mesh(rwGeo, rwMat);
+                runway.rotation.x = -Math.PI / 2;
+                scene.add(runway);
+
+                // Buildings (White blocks with Red wireframes)
+                const bldgMat = new THREE.MeshPhysicalMaterial({ 
+                    color: 0xffffff, 
+                    transparent: true, 
+                    opacity: 0.9,
+                    roughness: 0.1
+                });
+                const wireMat = new THREE.LineBasicMaterial({ color: 0xDC2626, opacity: 0.7, transparent: true }); // jacRed
+
+                const createBuilding = (w, h, d, x, z) => {
+                    const geo = new THREE.BoxGeometry(w, h, d);
+                    const mesh = new THREE.Mesh(geo, bldgMat);
+                    mesh.position.set(x, h/2, z);
+                    
+                    const edges = new THREE.EdgesGeometry(geo);
+                    const line = new THREE.LineSegments(edges, wireMat);
+                    mesh.add(line);
+                    scene.add(mesh);
+                };
+
+                createBuilding(6, 2, 4, -10, -5); 
+                createBuilding(8, 3, 5, -12, 2);  
+                createBuilding(4, 1.5, 4, 8, 8);   
+                createBuilding(5, 1, 3, 10, 2);  
+
+                // Moving dots (representing activity)
+                const vehicles = [];
+                const vGeo = new THREE.BoxGeometry(0.3, 0.1, 0.5);
+                const vMat = new THREE.MeshBasicMaterial({ color: 0x111827 });
+                
+                for(let i=0; i<4; i++) {
+                    const v = new THREE.Mesh(vGeo, vMat);
+                    v.position.set(8, 0.1, -15 + (i*8));
+                    scene.add(v);
+                    vehicles.push({ mesh: v, speed: 0.02 + (Math.random() * 0.02) });
+                }
+
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+                scene.add(ambientLight);
+                
+                const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                dirLight.position.set(10, 20, 10);
+                scene.add(dirLight);
+
+                let targetCamX = 0;
+                let targetCamY = 15;
+                let inCaseStudy = false;
+                
+                ScrollTrigger.create({
+                    trigger: "#projects",
+                    start: "top bottom",
+                    end: "bottom top",
+                    onEnter: () => inCaseStudy = true,
+                    onLeave: () => inCaseStudy = false,
+                    onEnterBack: () => inCaseStudy = true,
+                    onLeaveBack: () => inCaseStudy = false
+                });
+
+                // Auto rotate slightly if user isn't moving mouse much
+                let time = 0;
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+
+                    if (inCaseStudy) {
+                        time += 0.002;
+                        
+                        // Calculate normalized mouse coordinates (-1 to +1)
+                        const normX = (mouseX / window.innerWidth) * 2 - 1;
+                        const normY = -(mouseY / window.innerHeight) * 2 + 1;
+
+                        // Combine mouse movement with a slow auto-pan
+                        targetCamX = (normX * 8) + Math.sin(time) * 4;
+                        targetCamY = 15 + (normY * 4);
+
+                        camera.position.x += (targetCamX - camera.position.x) * 0.05;
+                        camera.position.y += (targetCamY - camera.position.y) * 0.05;
+                        camera.lookAt(scene.position);
+
+                        vehicles.forEach(v => {
+                            v.mesh.position.z += v.speed;
+                            if(v.mesh.position.z > 20) v.mesh.position.z = -20;
+                        });
+                    }
+                    renderer.render(scene, camera);
+                };
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            };
+            init3DScene();
+        });
+    </script>
+</body>
+</html>
