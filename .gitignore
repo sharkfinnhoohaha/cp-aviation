@@ -27,3 +27,14 @@ node_modules/
 .env
 .env.test
 .env.production
+
+# Next.js
+.next/
+out/
+
+# TinaCMS
+tina/__generated__/
+public/admin/
+
+# Build artifacts
+dist/

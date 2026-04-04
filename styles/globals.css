@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles and custom scrollbar */
+body {
+    background-color: #ffffff;
+    color: #111827;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F9FAFB; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #DC2626; }
+
+#cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 16px; height: 16px;
+    background-color: rgba(220, 38, 38, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+.cursor-hover {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: transparent !important;
+    border: 1px solid #DC2626;
+}
+
+.hs-solid {
+    height: 4px;
+    background-color: #FBBF24;
+    border-radius: 1px;
+    width: 0%;
+}
+.hs-dashed {
+    height: 4px;
+    background: repeating-linear-gradient(90deg, #FBBF24, #FBBF24 24px, transparent 24px, transparent 48px);
+    border-radius: 1px;
+    width: 0%;
+}
+
+.runway-centerline {
+    background: repeating-linear-gradient(0deg, transparent, transparent 30px, #E5E7EB 30px, #E5E7EB 60px);
+    background-size: 100% 120px;
+    animation: moveCenterline 4s linear infinite;
+}
+@keyframes moveCenterline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 120px; }
+}
+
+.rabbit-light {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background-color: #E5E7EB;
+}
+
+.papi-white { background-color: #ffffff; border: 1px solid #D1D5DB; box-shadow: 0 0 4px rgba(255,255,255,0.8); }
+.papi-red { background-color: #DC2626; box-shadow: 0 0 4px rgba(220,38,38,0.5); }
+
+.glass-panel-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sign-loc {
+    background-color: #000; border: 2px solid #FBBF24; color: #FBBF24;
+}
+
+.fly-wrap {
+    overflow: hidden;
+    display: block;
+}
+.fly-text {
+    display: block;
+    transform: translateY(115%);
+}

@@ -1,0 +1,68 @@
+{
+  "siteSettings": {
+    "companyName": "Johnson Aviation Consulting",
+    "logoText": "JAC",
+    "contactEmail": "nick@jacair.com",
+    "phone": "818-606-3560",
+    "location": "AGOURA HILLS, CA",
+    "copyrightYear": "2026"
+  },
+  "hero": {
+    "headline": "Johnson Aviation",
+    "subheadline": "Strategic Land Use, Facilities, & Financial Planning for the Airport Industry.",
+    "primaryCTAText": "SERVICES",
+    "primaryCTALink": "#services",
+    "secondaryCTAText": "PROJECTS",
+    "secondaryCTALink": "#projects"
+  },
+  "specialty": {
+    "tagLabel": "A",
+    "title": "Our Specialty is Airports.",
+    "body": "We focus exclusively on the aviation sector. Our deep understanding of federal regulations, local zoning, and airport operations allows us to navigate complex projects from concept to completion. Whether it's maximizing land value, securing funding, or ensuring regulatory compliance, we speak the language of airports."
+  },
+  "services": {
+    "sectionTitle": "Core Capabilities",
+    "items": [
+      {
+        "title": "Financial Planning",
+        "description": "Critical to creating a strategic long-term vision. We balance objectives with tenant needs, market demand, and operational realities while securing federal grant funding.",
+        "icon": "financial"
+      },
+      {
+        "title": "Land Use Planning",
+        "description": "Providing expertise to cities, counties, and developers to ensure the highest and best use of land near airports, preserving compatibility and safety.",
+        "icon": "landuse"
+      },
+      {
+        "title": "Facility Planning",
+        "description": "Comprehensive assessment of airfield, terminal, and landside demand against real estate resources to upgrade, expand, or modify facilities.",
+        "icon": "facility"
+      },
+      {
+        "title": "Business & Policy",
+        "description": "Working on strategic plans, air service development, and operations analysis to optimize service and maximize revenue in a market-driven environment.",
+        "icon": "policy"
+      }
+    ]
+  },
+  "about": {
+    "title": "About JAC",
+    "paragraph1": "Founded by Nick Johnson in 2004, Johnson Aviation is a certified Small Business Enterprise (SBE) providing leadership on high profile and contentious aviation projects.",
+    "paragraph2": "Our work at Los Angeles International Airport (LAX) and San Diego International Airport cleared the way for multi-billion-dollar development programs. We understand the unique challenges of airside and landside development.",
+    "stats": [
+      { "value": "20+", "label": "YEARS EXPERIENCE", "fullWidth": false },
+      { "value": "SBE", "label": "CERTIFIED", "fullWidth": false },
+      { "value": "Agency Coordination", "label": "", "fullWidth": true, "subtitle": "Agency Coordination", "subtitleBody": "Extensive experience partnering with the FAA, Caltrans, and local municipalities." }
+    ]
+  },
+  "caseStudy": {
+    "title": "Ontario Int'l Transfer",
+    "description": "Johnson Aviation acted as the lead consultant managing the transfer of ONT from LAWA to the OIAA. We subsequently spearheaded the",
+    "highlight": "$300M Capital Improvement Program",
+    "interactionHint": "DRAG/MOVE MOUSE TO EXPLORE MODEL"
+  },
+  "footer": {
+    "ctaText": "Ready for Departure.",
+    "runwayNumber": "24R"
+  }
+}

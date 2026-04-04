@@ -1,0 +1,31 @@
+{
+  "name": "johnson-aviation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build --local --skip-cloud-checks && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tinacms/auth": "^1.1.2",
+    "@types/three": "^0.183.1",
+    "gsap": "^3.14.2",
+    "next": "^15.5.14",
+    "react": "^18",
+    "react-dom": "^18",
+    "three": "^0.183.2",
+    "tinacms": "^3.7.1"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^2.2.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3",
+    "typescript": "^5"
+  }
+}
