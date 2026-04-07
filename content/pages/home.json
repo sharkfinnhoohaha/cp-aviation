@@ -52,8 +52,9 @@
     "stats": [
       {
         "value": "20+",
-        "label": "YEARS EXPERIENCE",
-        "fullWidth": false
+        "label": "YEARS OF EXPERIENCE",
+        "fullWidth": true,
+        "subtitle": "Tried, Trusted, and True"
       },
       {
         "value": "SBE",
