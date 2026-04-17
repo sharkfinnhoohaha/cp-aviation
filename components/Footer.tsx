@@ -21,14 +21,14 @@ export default function Footer({ footer, siteSettings }: FooterProps) {
         </h2>
         <a
           href={`mailto:${siteSettings.contactEmail}`}
-          className="text-xl md:text-2xl font-mono text-jacRed hover:text-red-800 transition-colors block mb-6"
+          className="text-base sm:text-xl md:text-2xl font-mono text-jacRed hover:text-red-800 transition-colors block mb-6 break-all"
         >
           {siteSettings.contactEmail}
         </a>
-        <p className="text-gray-500 font-mono text-xs tracking-widest">
-          {siteSettings.phone}
-          <span className="mx-3 text-gray-300">|</span>
-          {siteSettings.location}
+        <p className="text-gray-500 font-mono text-xs tracking-widest flex flex-col sm:flex-row items-center gap-1 sm:gap-0">
+          <span>{siteSettings.phone}</span>
+          <span className="hidden sm:inline mx-3 text-gray-300">|</span>
+          <span>{siteSettings.location}</span>
         </p>
       </div>
 

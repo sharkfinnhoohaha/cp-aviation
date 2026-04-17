@@ -1,0 +1,15 @@
+{
+  "registration": "N-KCMA",
+  "type": "Cessna 172S Skyhawk SP",
+  "year": "2008",
+  "engine": "Lycoming IO-360-L2A",
+  "horsepower": "180 HP",
+  "cruiseSpeed": "122 KTAS",
+  "range": "640 nm",
+  "category": "Primary Trainer",
+  "wetRate": "$175/hr",
+  "memberRate": "$163/hr",
+  "description": "The Cessna 172S is the world's most popular training aircraft. Our Skyhawk SP features the upgraded 180 HP fuel-injected engine and Garmin G1000 NXi glass panel, giving student pilots experience on the same avionics suite used in modern commercial aircraft.",
+  "image": "",
+  "cockpitImage": ""
+}
