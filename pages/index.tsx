@@ -64,7 +64,7 @@ export default function Home(props: HomeProps) {
     items: (rawServices.items ?? []).map(item => ({
       title: item?.title ?? '',
       description: item?.description ?? '',
-      icon: item?.icon ?? 'policy',
+      icon: item?.icon ?? 'wings',
     })),
   }
   const about = {
@@ -93,7 +93,8 @@ export default function Home(props: HomeProps) {
   return (
     <>
       <Head>
-        <title>{`${siteSettings.companyName} | Strategic Planning`}</title>
+        <title>{`${siteSettings.companyName} | Learn to Fly at KCMA`}</title>
+        <meta name="description" content="A good old-fashioned flight school at Camarillo Airport. One-on-one pilot training and 24/7 aircraft rental since 2009." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="antialiased selection:bg-jacRed selection:text-white font-sans">

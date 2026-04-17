@@ -84,7 +84,7 @@ export default defineConfig({
                     type: "string",
                     name: "icon",
                     label: "Icon Type",
-                    options: ["financial", "landuse", "facility", "policy"],
+                    options: ["wings", "instrument", "commercial", "club"],
                   },
                 ],
               },

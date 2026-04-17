@@ -1,83 +1,89 @@
 {
   "siteSettings": {
-    "companyName": "J Aviation",
-    "logoText": "JA",
-    "contactEmail": "plaecholder",
-    "phone": "818-677-6767",
-    "location": "AGOURA HILLS, CA",
+    "companyName": "Camarillo Flight Instruction",
+    "logoText": "CFI",
+    "contactEmail": "info@camarilloflightinstruction.com",
+    "phone": "805-233-7601",
+    "location": "CAMARILLO AIRPORT, CA (KCMA)",
     "copyrightYear": "2026"
   },
   "hero": {
-    "headline": "J Aviation",
-    "subheadline": "Strategic Land Use, Facilities, & Financial Planning for the Airport Industry.",
-    "primaryCTAText": "SERVICES",
+    "headline": "Learn to Fly.",
+    "subheadline": "A good old-fashioned flight school at KCMA — one-on-one instruction, a fleet you actually want to fly, and a pace set by the student. Ventura County since 2009.",
+    "primaryCTAText": "TRAINING",
     "primaryCTALink": "#services",
-    "secondaryCTAText": "PROJECTS",
+    "secondaryCTAText": "FLEET",
     "secondaryCTALink": "#projects"
   },
   "specialty": {
-    "tagLabel": "A",
-    "title": "Our Specialty is Airports.",
-    "body": "We focus exclusively on the aviation sector. Our deep understanding of federal regulations, local zoning, and airport operations allows us to navigate complex projects from concept to completion. Whether it's maximizing land value, securing funding, or ensuring regulatory compliance, we speak the language of airports."
+    "tagLabel": "805",
+    "title": "Paced to the Student. Not the Spreadsheet.",
+    "body": "Big-box flight schools run on throughput. We run on relationships. Every student at CFI gets their instructor's cell number, a dispatch-ready airplane, and training that adapts to their life — not a conveyor belt of stage checks. The result: pilots who actually know how to fly."
   },
   "services": {
-    "sectionTitle": "Core Capabilities",
+    "sectionTitle": "Training & Membership",
     "items": [
       {
-        "title": "Financial Planning",
-        "description": "Critical to creating a strategic long-term vision. We balance objectives with tenant needs, market demand, and operational realities while securing federal grant funding.",
-        "icon": "financial"
+        "title": "Private Pilot",
+        "description": "Your license to adventure. FAA Part 61 instruction paced to your schedule — not ours. Earn your ticket in a diverse fleet of Cessnas, Pipers, and Diamonds hangared on the field.",
+        "icon": "wings"
       },
       {
-        "title": "Land Use Planning",
-        "description": "Providing expertise to cities, counties, and developers to ensure the highest and best use of land near airports, preserving compatibility and safety.",
-        "icon": "landuse"
+        "title": "Instrument Rating",
+        "description": "Turn weather from a showstopper into a strategy. Learn to fly the system, trust the gauges, and get the most out of your certificate — IFR ready in Southern California's busiest airspace.",
+        "icon": "instrument"
       },
       {
-        "title": "Facility Planning",
-        "description": "Comprehensive assessment of airfield, terminal, and landside demand against real estate resources to upgrade, expand, or modify facilities.",
-        "icon": "facility"
+        "title": "Commercial & Beyond",
+        "description": "Career-grade training from Commercial through CFI, CFII, and MEI. Complex and spin endorsements on site. The same instructors who helped you solo will sign you off to teach.",
+        "icon": "commercial"
       },
       {
-        "title": "Business & Policy",
-        "description": "Working on strategic plans, air service development, and operations analysis to optimize service and maximize revenue in a market-driven environment.",
-        "icon": "policy"
+        "title": "Flight Club 805",
+        "description": "Members-only fleet access with 24/7 scheduling, priority booking, and discounted wet rates on every airplane we operate. Pay for the flying — not the hangar.",
+        "icon": "club"
       }
     ]
   },
   "about": {
-    "title": "About JAC",
-    "paragraph1": "Founded by Nick Johnson in 2004, Johnson Aviation is a certified Small Business Enterprise (SBE) providing leadership on high profile and contentious aviation projects.",
-    "paragraph2": "Our work at Los Angeles International Airport (LAX) and San Diego International Airport cleared the way for multi-billion-dollar development programs. We understand the unique challenges of airside and landside development.",
+    "title": "About CFI",
+    "paragraph1": "Camarillo Flight Instruction opened in 2009 with one aircraft, one instructor, and one idea: build the flight school we wished existed. Sixteen years later we're still obsessed with the same thing — teaching people to fly, the right way.",
+    "paragraph2": "Our fleet runs Cessna, Piper, and Diamond alongside an Elite simulator, all hangared at KCMA in the heart of Ventura County. Every aircraft is dispatch-ready. Every CFI is paid a living wage. Every student gets their instructor's cell number.",
     "stats": [
       {
-        "value": "20+",
-        "label": "YEARS OF EXPERIENCE",
-        "fullWidth": true,
-        "subtitle": "Tried, Trusted, and True"
-      },
-      {
-        "value": "SBE",
-        "label": "CERTIFIED",
+        "value": "$55",
+        "label": "CFI HOURLY RATE",
         "fullWidth": false
       },
       {
-        "value": "Agency Coordination",
+        "value": "2009",
+        "label": "FOUNDED AT KCMA",
+        "fullWidth": false
+      },
+      {
+        "value": "FAA Part 61",
         "label": "",
         "fullWidth": true,
-        "subtitle": "Agency Coordination",
-        "subtitleBody": "Extensive experience partnering with the FAA, Caltrans, and local municipalities."
+        "subtitle": "Private · Instrument · Commercial · CFI · CFII · MEI",
+        "subtitleBody": "Complex and spin endorsements on the field. Cessna, Piper, and Diamond aircraft plus an Elite simulator — all dispatch-ready."
+      },
+      {
+        "value": "Flight Club 805",
+        "label": "",
+        "fullWidth": true,
+        "subtitle": "24/7 Fleet Access",
+        "subtitleBody": "A members-only aircraft club for pilots who want to keep flying after the checkride — discounted wet rates, priority scheduling, zero hangar overhead."
       }
     ]
   },
   "caseStudy": {
-    "title": "Ontario Int'l Transfer",
-    "description": "Johnson Aviation acted as the lead consultant managing the transfer of ONT from LAWA to the OIAA. We subsequently spearheaded the",
-    "highlight": "$300M Capital Improvement Program",
-    "interactionHint": "DRAG/MOVE MOUSE TO EXPLORE MODEL"
+    "title": "KCMA — Our Home Field",
+    "description": "Camarillo Municipal sits in a rare sweet spot: uncongested pattern, reliable VFR weather nearly year-round, and direct access to Santa Barbara, the Channel Islands, and the LA basin. The 6,013' runway gives us room to teach — and a view of the Santa Monica Mountains that's hard to beat. Home to our",
+    "highlight": "Cessna · Piper · Diamond fleet",
+    "interactionHint": "DRAG/MOVE MOUSE TO EXPLORE THE FIELD"
   },
   "footer": {
-    "ctaText": "Ready for Departure.",
-    "runwayNumber": "24R"
+    "ctaText": "Cleared for Takeoff.",
+    "runwayNumber": "26"
   }
 }

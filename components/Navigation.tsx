@@ -22,8 +22,9 @@ export default function Navigation({ siteSettings }: NavigationProps) {
           </span>
         </div>
         <div className="hidden md:flex gap-8 font-mono text-xs tracking-widest text-gray-500">
-          <a href="#specialty" className="hover:text-jacRed transition-colors interactive">SPECIALTY</a>
-          <a href="#services" className="hover:text-jacRed transition-colors interactive">SERVICES</a>
+          <a href="#specialty" className="hover:text-jacRed transition-colors interactive">WHY CFI</a>
+          <a href="#services" className="hover:text-jacRed transition-colors interactive">TRAINING</a>
+          <a href="#projects" className="hover:text-jacRed transition-colors interactive">FLEET</a>
           <a href="#about" className="hover:text-jacRed transition-colors interactive">ABOUT</a>
         </div>
         <a

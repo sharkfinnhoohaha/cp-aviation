@@ -12,39 +12,56 @@ interface ServicesProps {
 }
 
 function ServiceIcon({ icon }: { icon: string }) {
-  if (icon === 'financial') {
+  const base = "w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors"
+  if (icon === 'wings') {
+    // Pilot wings — first certificate
     return (
-      <svg viewBox="0 0 24 24" className="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      <svg viewBox="0 0 24 24" className={base} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="2.2" />
+        <path d="M12 10V6" />
+        <path d="M10 12C7 12 4 13 2 15c3 0 6-.5 8-1.5" />
+        <path d="M14 12c3 0 6 1 8 3-3 0-6-.5-8-1.5" />
+        <path d="M10.5 13.5C8 14 5.5 15 4 16.5" />
+        <path d="M13.5 13.5c2.5.5 5 1.5 6.5 3" />
       </svg>
     )
   }
-  if (icon === 'landuse') {
+  if (icon === 'instrument') {
+    // Attitude indicator / six-pack gauge
     return (
-      <svg viewBox="0 0 24 24" className="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
-        <line x1="8" y1="2" x2="8" y2="18" />
-        <line x1="16" y1="6" x2="16" y2="22" />
+      <svg viewBox="0 0 24 24" className={base} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18" />
+        <path d="M7 15l5-3 5 3" />
+        <circle cx="12" cy="12" r="1" />
       </svg>
     )
   }
-  if (icon === 'facility') {
+  if (icon === 'commercial') {
+    // Airplane silhouette
     return (
-      <svg viewBox="0 0 24 24" className="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
+      <svg viewBox="0 0 24 24" className={base} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 16l8-3 3-9 1 0 1 9 7 3-7 1-1 4-1 0-2-4z" />
       </svg>
     )
   }
-  // policy (default)
+  if (icon === 'club') {
+    // Members — hangar with key
+    return (
+      <svg viewBox="0 0 24 24" className={base} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 20V11l9-6 9 6v9" />
+        <path d="M3 20h18" />
+        <circle cx="9" cy="15" r="1.6" />
+        <path d="M10.5 15H15" />
+        <path d="M14 14v2" />
+      </svg>
+    )
+  }
+  // Fallback — generic doc
   return (
-    <svg viewBox="0 0 24 24" className="w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className={base} fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
       <polyline points="14 2 14 8 20 8" />
-      <line x1="16" y1="13" x2="8" y2="13" />
-      <line x1="16" y1="17" x2="8" y2="17" />
-      <polyline points="10 9 9 9 8 9" />
     </svg>
   )
 }

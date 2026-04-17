@@ -1,23 +1,32 @@
-# Johnson Aviation Consulting (JAC) - Strategic Planning
+# Camarillo Flight Instruction — Website
 
-A modern, minimalist, and interactive single-page website tailored for Johnson Aviation Consulting. Features niche aviation symbology, GSAP scroll animations, and a Three.js interactive case study.
+A modern, minimalist, and interactive single-page site for Camarillo Flight Instruction & Flight Club 805 at KCMA. Built on Next.js with TinaCMS, GSAP scroll animations, and a Three.js interactive KCMA airfield canvas.
 
 ## Setup & Local Development
-Since this is a lightweight static site built with Tailwind via CDN, no build steps are required.
 
-1. Clone the repository.
-2. Open `index.html` in your favorite browser.
-   - *Tip: Use an extension like "Live Server" in VS Code for automatic reloading.*
+```bash
+npm install
+npm run dev
+```
 
-## Technologies Used
-- HTML5 / CSS3
-- [Tailwind CSS (CDN)](https://tailwindcss.com/)
-- [GSAP & ScrollTrigger](https://greensock.com/gsap/) for advanced animations
-- [Three.js](https://threejs.org/) for the 3D interactive case study canvas
+The dev server runs TinaCMS alongside Next.js so content in `content/pages/home.json` is editable in-browser at `/admin`.
 
-## Deployment to Vercel
-This project is perfectly formatted for a seamless Vercel deployment:
-1. Push this repository to GitHub.
-2. Log into [Vercel](https://vercel.com).
-3. Click "Add New Project" and import your GitHub repository.
-4. Leave all settings as default (Framework Preset: Other) and click **Deploy**.
+## Content
+
+All page copy — hero, training programs, about, Flight Club 805, KCMA field, and footer — lives in `content/pages/home.json` and can be edited through the Tina admin UI.
+
+## Technologies
+
+- Next.js 15 / React 18 / TypeScript
+- Tailwind CSS
+- [TinaCMS](https://tina.io) for visual content editing
+- [GSAP & ScrollTrigger](https://greensock.com/gsap/) for scroll animations
+- [Three.js](https://threejs.org/) for the interactive KCMA airfield scene
+
+## Deployment
+
+Push to the connected Vercel project. Framework preset: Next.js. No additional configuration required.
+
+---
+
+Site by [Overlook Strategy](https://overlookstrategy.com).

@@ -144,7 +144,7 @@ export default function CaseStudy({ caseStudy }: CaseStudyProps) {
           <h2 className="text-2xl md:text-3xl font-sans font-bold mb-4 text-jacDark">{caseStudy.title}</h2>
           <p className="text-gray-600 font-light text-sm mb-6 leading-relaxed">
             {caseStudy.description}{' '}
-            <strong className="text-jacDark font-medium">{caseStudy.highlight}</strong> and Guardian Aviation FBO.
+            <strong className="text-jacDark font-medium">{caseStudy.highlight}</strong>.
           </p>
           <div className="text-[10px] font-mono text-gray-400 flex items-center gap-2">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
