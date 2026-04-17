@@ -10,7 +10,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "uploads",
       publicFolder: "public",
     },
   },
@@ -37,6 +37,8 @@ export default defineConfig({
               { type: "string", name: "phone", label: "Phone Number" },
               { type: "string", name: "location", label: "Location" },
               { type: "string", name: "copyrightYear", label: "Copyright Year" },
+              { type: "image", name: "logoImage", label: "Logo Image (optional)" },
+              { type: "image", name: "heroImage", label: "Hero Background Image (optional)" },
             ],
           },
           // Hero Section
@@ -51,6 +53,7 @@ export default defineConfig({
               { type: "string", name: "primaryCTALink", label: "Primary CTA Button Link" },
               { type: "string", name: "secondaryCTAText", label: "Secondary CTA Button Text" },
               { type: "string", name: "secondaryCTALink", label: "Secondary CTA Button Link" },
+              { type: "image", name: "backgroundImage", label: "Background Image" },
             ],
           },
           // Specialty Section
@@ -62,6 +65,7 @@ export default defineConfig({
               { type: "string", name: "tagLabel", label: "Tag Label" },
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "body", label: "Body Text", ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "Section Image (optional)" },
             ],
           },
           // Services Section
@@ -76,7 +80,7 @@ export default defineConfig({
                 name: "items",
                 label: "Services",
                 list: true,
-                ui: { itemProps: (item) => ({ label: item?.title }) },
+                ui: { itemProps: (item: { title?: string }) => ({ label: item?.title }) },
                 fields: [
                   { type: "string", name: "title", label: "Service Title" },
                   { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
@@ -86,6 +90,7 @@ export default defineConfig({
                     label: "Icon Type",
                     options: ["wings", "instrument", "commercial", "club"],
                   },
+                  { type: "image", name: "image", label: "Service Image (optional)" },
                 ],
               },
             ],
@@ -99,12 +104,13 @@ export default defineConfig({
               { type: "string", name: "title", label: "Section Title" },
               { type: "string", name: "paragraph1", label: "First Paragraph", ui: { component: "textarea" } },
               { type: "string", name: "paragraph2", label: "Second Paragraph", ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "About Section Image (optional)" },
               {
                 type: "object",
                 name: "stats",
                 label: "Statistics",
                 list: true,
-                ui: { itemProps: (item) => ({ label: item?.value }) },
+                ui: { itemProps: (item: { value?: string }) => ({ label: item?.value }) },
                 fields: [
                   { type: "string", name: "value", label: "Stat Value (e.g. 20+)" },
                   { type: "string", name: "label", label: "Stat Label" },
@@ -137,6 +143,28 @@ export default defineConfig({
               { type: "string", name: "runwayNumber", label: "Runway Number (decorative)" },
             ],
           },
+        ],
+      },
+      // Fleet collection for managing aircraft
+      {
+        name: "fleetAircraft",
+        label: "Fleet Aircraft",
+        path: "content/fleet",
+        format: "json",
+        fields: [
+          { type: "string", name: "registration", label: "Registration (e.g. N12345)" },
+          { type: "string", name: "type", label: "Aircraft Type (e.g. Cessna 172S)" },
+          { type: "string", name: "year", label: "Year" },
+          { type: "string", name: "engine", label: "Engine" },
+          { type: "string", name: "horsepower", label: "Horsepower" },
+          { type: "string", name: "cruiseSpeed", label: "Cruise Speed (e.g. 122 KTAS)" },
+          { type: "string", name: "range", label: "Range (e.g. 640 nm)" },
+          { type: "string", name: "category", label: "Category" },
+          { type: "string", name: "wetRate", label: "Wet Rate (e.g. $175/hr)" },
+          { type: "string", name: "memberRate", label: "Club Member Rate (e.g. $163/hr)" },
+          { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+          { type: "image", name: "image", label: "Aircraft Photo" },
+          { type: "image", name: "cockpitImage", label: "Cockpit Photo (optional)" },
         ],
       },
     ],
