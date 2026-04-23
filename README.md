@@ -50,8 +50,8 @@ This website was adapted from a custom aviation theme, with content specifically
 ## Development
 
 ```bash
-# Install dependencies
-npm install
+# One-shot setup (checks Node version and installs deps)
+./setup.sh
 
 # Run development server
 npm run dev
