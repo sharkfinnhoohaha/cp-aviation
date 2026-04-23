@@ -12,7 +12,7 @@ interface ServicesProps {
 }
 
 function ServiceIcon({ icon }: { icon: string }) {
-  const base = "w-8 h-8 stroke-current text-gray-400 group-hover:text-jacRed transition-colors"
+  const base = "w-8 h-8 stroke-current text-gray-400 group-hover:text-cpRed transition-colors"
   if (icon === 'wings') {
     // Pilot wings — first certificate
     return (
@@ -72,7 +72,7 @@ export default function Services({ services }: ServicesProps) {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
           <div className="fly-wrap">
-            <h2 className="fly-text scroll-fly text-3xl md:text-4xl font-bold font-sans text-jacDark">
+            <h2 className="fly-text scroll-fly text-3xl md:text-4xl font-bold font-sans text-cpDark">
               {services.sectionTitle}
             </h2>
           </div>
@@ -87,12 +87,12 @@ export default function Services({ services }: ServicesProps) {
           {services.items.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-jacLight p-8 border border-gray-100 hover:border-jacRed hover:shadow-md transition-all duration-300 group interactive"
+              className="service-card bg-cpLight p-8 border border-gray-100 hover:border-cpRed hover:shadow-md transition-all duration-300 group interactive"
             >
               <div className="mb-8">
                 <ServiceIcon icon={service.icon} />
               </div>
-              <h3 className="text-xl font-bold font-sans mb-3 text-jacDark group-hover:text-jacRed transition-colors">
+              <h3 className="text-xl font-bold font-sans mb-3 text-cpDark group-hover:text-cpRed transition-colors">
                 {service.title}
               </h3>
               <p className="text-gray-500 font-light leading-relaxed text-sm">

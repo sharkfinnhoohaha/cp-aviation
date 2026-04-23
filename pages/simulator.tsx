@@ -39,12 +39,12 @@ const CL_MAX   = [1.45,  1.65,  1.85,  2.00]
 const MU_ROLL  = 0.02
 const MU_BRAKE = 0.40
 
-// Airport / Runway – KCMA
-const ELEV_FT   = 77
-const ELEV_M    = ELEV_FT * FT          // ≈ 23.47 m MSL
-const RWY_LEN   = 1833                  // m (6013 ft)
-const RWY_WID   = 45.72                 // m (150 ft)
-const RWY_HDG   = 260                   // degrees magnetic
+// Airport / Runway – KSZP Santa Paula
+const ELEV_FT   = 243
+const ELEV_M    = ELEV_FT * FT          // ≈ 74.07 m MSL
+const RWY_LEN   = 807                   // m (2650 ft) — Santa Paula RWY 04/22
+const RWY_WID   = 18.3                  // m (60 ft)
+const RWY_HDG   = 218                   // degrees magnetic — Runway 22
 const RWY_HDG_R = RWY_HDG * D2R
 
 // World coordinates: +X = East, +Y = Up, +Z = South
@@ -1103,17 +1103,17 @@ function LoadingScreen({ onReady }: { onReady: () => void }) {
   const [lineIdx,  setLineIdx]  = useState(0)
 
   const atis = [
-    'CAMARILLO INFORMATION ALPHA',
-    'CAMARILLO AIRPORT (KCMA)',
-    'OBSERVATION TIME 0800Z',
-    'WINDS 320 AT 8 KNOTS',
+    'SANTA PAULA TRAFFIC ADVISORY',
+    'SANTA PAULA AIRPORT (KSZP)',
+    'CTAF 122.7  ·  FIELD ELEV 243 FT',
+    'WINDS 240 AT 8 KNOTS',
     'VISIBILITY 10 MILES',
     'SKY CLEAR',
     'TEMPERATURE 18°C  DEW POINT 12°C',
     'ALTIMETER 29.92',
-    'REMARKS — PIREP: SMOOTH AT 3000',
-    'ADVISE ON INITIAL CONTACT',
-    'YOU HAVE INFORMATION ALPHA',
+    'RUNWAY 22 IN USE  ·  LEFT TRAFFIC',
+    'NON-TOWERED — ADVISE INTENTIONS',
+    'AEROBATIC BOX ACTIVE — SEE NOTAMS',
     '─────────────────────────────',
     'INITIALISING SIMULATOR…',
   ]
@@ -1138,12 +1138,12 @@ function LoadingScreen({ onReady }: { onReady: () => void }) {
       display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
       fontFamily:'"Courier New",monospace', color:'#00FF99'
     }}>
-      {/* KCMA Logo / ident */}
+      {/* KSZP Logo / ident */}
       <div style={{ marginBottom:32, textAlign:'center' }}>
         <div style={{ fontSize:52, fontWeight:'bold', letterSpacing:10, color:'#00FF99',
-          textShadow:'0 0 30px rgba(0,255,153,0.5)' }}>KCMA</div>
+          textShadow:'0 0 30px rgba(0,255,153,0.5)' }}>KSZP</div>
         <div style={{ fontSize:14, letterSpacing:4, color:'#5A8A7A', marginTop:4 }}>
-          CAMARILLO AIRPORT — RUNWAY 26
+          SANTA PAULA AIRPORT — RUNWAY 22
         </div>
       </div>
       {/* ATIS text */}
@@ -1194,7 +1194,7 @@ function InstructionsPanel({ show, onToggle }: { show:boolean, onToggle:()=>void
       ['B',     'Parking brake toggle'],
       ['P',     'Pause / Resume'],
       ['C',     'Camera: cockpit/chase/tower'],
-      ['R',     'Reset aircraft to RWY 26'],
+      ['R',     'Reset aircraft to RWY 22'],
       ['',      ''],
       ['',      'Pro tip: Release brake,'],
     ]
@@ -1216,7 +1216,7 @@ function InstructionsPanel({ show, onToggle }: { show:boolean, onToggle:()=>void
           fontFamily:'"Courier New",monospace', fontSize:11, color:'#8ABCAC'
         }}>
           <div style={{ color:'#00CC88', fontWeight:'bold', marginBottom:8, fontSize:12,
-            letterSpacing:2 }}>KCMA RWY 26 — FLIGHT CONTROLS</div>
+            letterSpacing:2 }}>KSZP RWY 22 — FLIGHT CONTROLS</div>
           <div style={{ display:'flex', gap:24 }}>
             {cols.map((col,ci)=>(
               <div key={ci}>
@@ -1236,8 +1236,8 @@ function InstructionsPanel({ show, onToggle }: { show:boolean, onToggle:()=>void
             ))}
           </div>
           <div style={{ marginTop:10, color:'#4A7060', fontSize:10, lineHeight:1.5 }}>
-            Cessna 172S Skyhawk SP — Lycoming IO-360-L2A 180 HP — Vr 55 kt — Vy 74 kt
-            {' '}— Pattern alt 1277 ft MSL — CTAF 123.025
+            Cessna 172S Skyhawk — Lycoming IO-360 180 HP — Vr 55 kt — Vy 74 kt
+            {' '}— KSZP elev 243 ft — Pattern alt 1243 ft MSL — CTAF 122.7
           </div>
         </div>
       )}
@@ -1249,8 +1249,8 @@ function InstructionsPanel({ show, onToggle }: { show:boolean, onToggle:()=>void
 // MAIN SIMULATOR PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 const siteSettings = {
-  logoText: 'CFI',
-  contactEmail: 'info@camarilloflightinstruction.com',
+  logoText: 'CP',
+  contactEmail: 'info@cpaviation.com',
 }
 
 export default function SimulatorPage() {
@@ -1421,8 +1421,8 @@ export default function SimulatorPage() {
   return (
     <>
       <Head>
-        <title>Flight Simulator — KCMA Runway 26 Departure | Camarillo Flight Instruction</title>
-        <meta name="description" content="Realistic Cessna 172S flight simulator of Camarillo Airport (KCMA) Runway 26 departure. Experience takeoff from KCMA with accurate physics, instruments and terrain." />
+        <title>Flight Simulator — KSZP Runway 22 Departure | CP Aviation</title>
+        <meta name="description" content="Realistic Cessna 172 flight simulator of Santa Paula Airport (KSZP) Runway 22 departure. Experience takeoff from KSZP with accurate physics, instruments and terrain." />
       </Head>
 
       {/* Navigation */}

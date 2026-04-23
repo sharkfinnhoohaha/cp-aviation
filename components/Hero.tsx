@@ -50,7 +50,7 @@ export default function Hero({ hero }: HeroProps) {
         </div>
 
         <div className="fly-wrap mb-6">
-          <h1 className="fly-text hero-text text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-jacDark leading-[1.1]">
+          <h1 className="fly-text hero-text text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-cpDark leading-[1.1]">
             {hero.headline}
           </h1>
         </div>
@@ -63,13 +63,13 @@ export default function Hero({ hero }: HeroProps) {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 opacity-0 hero-fade transform translate-y-4">
           <a
             href={hero.primaryCTALink}
-            className="w-full sm:w-auto px-8 py-3 bg-jacRed text-white font-mono text-sm tracking-wider font-semibold rounded hover:bg-red-700 transition-colors interactive"
+            className="w-full sm:w-auto px-8 py-3 bg-cpRed text-white font-mono text-sm tracking-wider font-semibold rounded hover:bg-red-700 transition-colors interactive"
           >
             {hero.primaryCTAText}
           </a>
           <a
             href={hero.secondaryCTALink}
-            className="w-full sm:w-auto px-8 py-3 bg-white text-jacDark border border-gray-300 font-mono text-sm tracking-wider font-semibold rounded hover:border-jacRed hover:text-jacRed transition-colors interactive"
+            className="w-full sm:w-auto px-8 py-3 bg-white text-cpDark border border-gray-300 font-mono text-sm tracking-wider font-semibold rounded hover:border-cpRed hover:text-cpRed transition-colors interactive"
           >
             {hero.secondaryCTAText}
           </a>

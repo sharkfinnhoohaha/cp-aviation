@@ -83,11 +83,11 @@ export default function Home({ data }: HomeProps) {
   return (
     <>
       <Head>
-        <title>{`${siteSettings.companyName} | Learn to Fly at KCMA`}</title>
-        <meta name="description" content="A good old-fashioned flight school at Camarillo Airport. One-on-one pilot training and 24/7 aircraft rental since 2009." />
+        <title>{`${siteSettings.companyName} | Training Safe Pilots at KSZP Since 1987`}</title>
+        <meta name="description" content="CP Aviation is a family-owned flight school at Santa Paula Airport (KSZP). Private, Instrument, Commercial, CFI, tailwheel, and Emergency Maneuver Training since 1987." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <div className="antialiased selection:bg-jacRed selection:text-white font-sans">
+      <div className="antialiased selection:bg-cpRed selection:text-white font-sans">
         <Cursor />
         <ScrollAnimations />
         <Navigation siteSettings={siteSettings} />

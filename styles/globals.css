@@ -2,24 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles and custom scrollbar */
+/* CP Aviation — base styles and custom scrollbar */
 body {
-    background-color: #ffffff;
-    color: #111827;
+    background-color: #FBF9F4;
+    color: #0B2545;
     overflow-x: hidden;
     cursor: none;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #F9FAFB; }
-::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #1E40AF; }
+::-webkit-scrollbar-track { background: #F4F1EA; }
+::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0B2545; }
 
 #cursor {
     position: fixed;
     top: 0; left: 0;
     width: 16px; height: 16px;
-    background-color: rgba(30, 64, 175, 0.5);
+    background-color: rgba(200, 16, 46, 0.55);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -30,25 +30,26 @@ body {
     width: 40px !important;
     height: 40px !important;
     background-color: transparent !important;
-    border: 1px solid #1E40AF;
+    border: 1px solid #0B2545;
 }
 
 .hs-solid {
     height: 4px;
-    background-color: #FBBF24;
+    background-color: #E8A93E;
     border-radius: 1px;
     width: 0%;
 }
 .hs-dashed {
     height: 4px;
-    background: repeating-linear-gradient(90deg, #FBBF24, #FBBF24 24px, transparent 24px, transparent 48px);
+    background: repeating-linear-gradient(90deg, #E8A93E, #E8A93E 24px, transparent 24px, transparent 48px);
     border-radius: 1px;
     width: 0%;
 }
 
 .runway-centerline {
-    background: repeating-linear-gradient(0deg, transparent, transparent 30px, #E5E7EB 30px, #E5E7EB 60px);
+    background: repeating-linear-gradient(0deg, transparent, transparent 30px, #E8A93E 30px, #E8A93E 60px);
     background-size: 100% 120px;
+    opacity: 0.35;
     animation: moveCenterline 4s linear infinite;
 }
 @keyframes moveCenterline {
@@ -63,17 +64,17 @@ body {
 }
 
 .papi-white { background-color: #ffffff; border: 1px solid #D1D5DB; box-shadow: 0 0 4px rgba(255,255,255,0.8); }
-.papi-red { background-color: #1E40AF; box-shadow: 0 0 4px rgba(30,64,175,0.5); }
+.papi-red { background-color: #C8102E; box-shadow: 0 0 4px rgba(200,16,46,0.5); }
 
 .glass-panel-light {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(251, 249, 244, 0.88);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(11, 37, 69, 0.08);
 }
 
 .sign-loc {
-    background-color: #000; border: 2px solid #FBBF24; color: #FBBF24;
+    background-color: #0B2545; border: 2px solid #E8A93E; color: #E8A93E;
 }
 
 .fly-wrap {

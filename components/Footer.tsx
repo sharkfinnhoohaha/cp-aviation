@@ -16,12 +16,12 @@ export default function Footer({ footer, siteSettings }: FooterProps) {
   return (
     <footer className="relative w-full bg-white overflow-hidden flex flex-col justify-start items-center pt-24 pb-12">
       <div className="text-center z-20 mb-16 px-4 interactive">
-        <h2 className="text-3xl md:text-4xl font-bold font-sans text-jacDark mb-6 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold font-sans text-cpDark mb-6 tracking-tight">
           {footer.ctaText}
         </h2>
         <a
           href={`mailto:${siteSettings.contactEmail}`}
-          className="text-base sm:text-xl md:text-2xl font-mono text-jacRed hover:text-red-800 transition-colors block mb-6 break-all"
+          className="text-base sm:text-xl md:text-2xl font-mono text-cpRed hover:text-red-800 transition-colors block mb-6 break-all"
         >
           {siteSettings.contactEmail}
         </a>
