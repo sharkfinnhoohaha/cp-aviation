@@ -14,7 +14,7 @@
     "react-dom": "^18.2.0",
     "gsap": "^3.12.2",
     "@gsap/react": "^2.0.0",
-    "lenis": "^0.14.0",
+    "lenis": "^1.0.42",
     "three": "^0.158.0",
     "@react-three/fiber": "^8.15.0",
     "@react-three/drei": "^9.90.0"
