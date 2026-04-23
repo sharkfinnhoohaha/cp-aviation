@@ -1,5 +1,3 @@
-import { useTina } from 'tinacms/dist/react'
-import { PageDocument, PageQuery, PageQueryVariables } from '../tina/__generated__/types'
 import Head from 'next/head'
 import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
@@ -11,33 +9,25 @@ import CaseStudy from '../components/CaseStudy'
 import Footer from '../components/Footer'
 import Cursor from '../components/Cursor'
 import ScrollAnimations from '../components/ScrollAnimations'
-import path from 'path'
-import fs from 'fs'
+import homeData from '../content/pages/home.json'
 
 interface HomeProps {
-  data: PageQuery
-  variables: PageQueryVariables
-  query: string
+  data: typeof homeData
 }
 
-export default function Home(props: HomeProps) {
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  })
+export default function Home({ data }: HomeProps) {
+  const page = data
 
-  const page = data.page
   // Non-null assertions are safe: all sections are always populated in home.json
-  const rawSettings = page.siteSettings!
-  const rawHero = page.hero!
-  const rawSpecialty = page.specialty!
-  const rawServices = page.services!
-  const rawAbout = page.about!
-  const rawCaseStudy = page.caseStudy!
-  const rawFooter = page.footer!
+  const rawSettings = page.siteSettings
+  const rawHero = page.hero
+  const rawSpecialty = page.specialty
+  const rawServices = page.services
+  const rawAbout = page.about
+  const rawCaseStudy = page.caseStudy
+  const rawFooter = page.footer
 
-  // Map nullable TinaCMS generated types to non-nullable component props
+  // Map nullable types to non-nullable component props
   const siteSettings = {
     companyName: rawSettings.companyName ?? '',
     logoText: rawSettings.logoText ?? '',
@@ -115,32 +105,9 @@ export default function Home(props: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const relativePath = 'home.json'
-  const filePath = path.join(process.cwd(), 'content', 'pages', relativePath)
-  const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-
-  const data = {
-    page: {
-      __typename: 'Page' as const,
-      id: `content/pages/${relativePath}`,
-      _sys: {
-        filename: 'home',
-        basename: 'home.json',
-        hasReferences: false,
-        breadcrumbs: ['home'],
-        path: `content/pages/${relativePath}`,
-        relativePath,
-        extension: '.json',
-      },
-      ...jsonData,
-    },
-  }
-
   return {
     props: {
-      data,
-      query: PageDocument,
-      variables: { relativePath },
+      data: homeData,
     },
   }
 }
