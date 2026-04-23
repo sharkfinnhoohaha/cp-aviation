@@ -138,13 +138,13 @@ export default function CaseStudy({ caseStudy }: CaseStudyProps) {
       <div className="absolute inset-0 pointer-events-none flex items-center p-6 md:p-16 z-10">
         <div className="max-w-md pointer-events-auto glass-panel-light p-8 rounded shadow-lg cs-ui transform translate-y-8 opacity-0">
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-2 h-2 rounded-full bg-jacRed animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-cpRed animate-pulse" />
             <span className="font-mono text-xs tracking-widest text-gray-500 uppercase">Interactive Case Study</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-sans font-bold mb-4 text-jacDark">{caseStudy.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-sans font-bold mb-4 text-cpDark">{caseStudy.title}</h2>
           <p className="text-gray-600 font-light text-sm mb-6 leading-relaxed">
             {caseStudy.description}{' '}
-            <strong className="text-jacDark font-medium">{caseStudy.highlight}</strong>.
+            <strong className="text-cpDark font-medium">{caseStudy.highlight}</strong>.
           </p>
           <div className="text-[10px] font-mono text-gray-400 flex items-center gap-2">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

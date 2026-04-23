@@ -8,9 +8,10 @@ CP Aviation has been "Training Safe Pilots" since 1987. Located at one of the bu
 
 - **Private Pilot Training** — From first flight to certificate
 - **Instrument Rating** — Master the gauges and fly IFR with confidence
-- **Commercial & CFI** — Career-grade training and instructor certifications
+- **Commercial & Instructor** — Career-grade training and instructor certifications
 - **Emergency Maneuver Training (EMT)** — Spin training, unusual attitudes, and aerobatics
 - **Tailwheel Training** — Master conventional gear with Citabria aircraft
+- **Aircraft Maintenance** — Full-service shop specializing in Cessna, Citabrias and Decathlons
 - **Vicki Cruse Memorial Scholarship** — Annual scholarship for IAC members pursuing aerobatic training
 
 ## Aircraft Fleet
@@ -21,8 +22,8 @@ CP Aviation has been "Training Safe Pilots" since 1987. Located at one of the bu
 
 ## Location
 
-📍 **Santa Paula Airport (KSZP)**  
-855 E Santa Maria St  
+Santa Paula Airport (KSZP)
+855 E Santa Maria St
 Santa Paula, CA 93060
 
 Just minutes from the beaches of Ventura and Oxnard, with easy access to Camarillo and Point Mugu.
@@ -30,10 +31,17 @@ Just minutes from the beaches of Ventura and Oxnard, with easy access to Camaril
 ## Technology
 
 - **Framework**: Next.js 14
-- **Styling**: Tailwind CSS with custom aviation-themed color palette
+- **Styling**: Tailwind CSS with custom aviation-themed palette (cpNavy / cpRed / cpGold / cpLight)
 - **Animations**: GSAP + Lenis for smooth scroll
-- **3D**: React Three Fiber for interactive airport exploration
+- **3D**: React Three Fiber / Three.js for interactive airport exploration and the KSZP Runway 22 simulator
 - **CMS**: TinaCMS for content management
+
+## Brand
+
+- **Navy** `#0B2545` — Primary (text, headers, footer)
+- **Red** `#C8102E` — Accents and CTAs
+- **Gold** `#E8A93E` — Secondary accent, hold-short lines, runway centerline
+- **Paper** `#FBF9F4` / **Light** `#F4F1EA` — Surfaces
 
 ## Design Notes
 
@@ -46,6 +54,7 @@ This website was adapted from a custom aviation theme, with content specifically
 - Real student testimonials from their website
 - Recent student success stories (first solos, new ratings)
 - Fleet information for Cessna, Citabria, and Decathlon aircraft
+- KSZP Runway 22 flight simulator
 
 ## Development
 
@@ -62,6 +71,6 @@ npm run build
 
 ## Credits
 
-Original theme adapted for CP Aviation with full due diligence on content, branding, and messaging from cpaviation.com.
+Original theme adapted for CP Aviation with content, branding, and messaging researched from cpaviation.com.
 
 © 2026 CP Aviation. All rights reserved.
