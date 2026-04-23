@@ -1,32 +1,67 @@
-# Camarillo Flight Instruction — Website
+# CP Aviation Website
 
-A modern, minimalist, and interactive single-page site for Camarillo Flight Instruction & Flight Club 805 at KCMA. Built on Next.js with TinaCMS, GSAP scroll animations, and a Three.js interactive KCMA airfield canvas.
+A modern, cinematic website for CP Aviation — a family-owned flight school at Santa Paula Airport (KSZP) since 1987.
 
-## Setup & Local Development
+## About CP Aviation
+
+CP Aviation has been "Training Safe Pilots" since 1987. Located at one of the busiest privately owned airfields in the USA, they offer:
+
+- **Private Pilot Training** — From first flight to certificate
+- **Instrument Rating** — Master the gauges and fly IFR with confidence
+- **Commercial & CFI** — Career-grade training and instructor certifications
+- **Emergency Maneuver Training (EMT)** — Spin training, unusual attitudes, and aerobatics
+- **Tailwheel Training** — Master conventional gear with Citabria aircraft
+- **Vicki Cruse Memorial Scholarship** — Annual scholarship for IAC members pursuing aerobatic training
+
+## Aircraft Fleet
+
+- **Cessna 172 Skyhawk** — Primary trainers, dispatch-ready
+- **American Champion Citabria 7ECA** — Tailwheel trainers for endorsements
+- **American Champion Decathlon 8KCAB** — Aerobatic aircraft for EMT and spin training
+
+## Location
+
+📍 **Santa Paula Airport (KSZP)**  
+855 E Santa Maria St  
+Santa Paula, CA 93060
+
+Just minutes from the beaches of Ventura and Oxnard, with easy access to Camarillo and Point Mugu.
+
+## Technology
+
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS with custom aviation-themed color palette
+- **Animations**: GSAP + Lenis for smooth scroll
+- **3D**: React Three Fiber for interactive airport exploration
+- **CMS**: TinaCMS for content management
+
+## Design Notes
+
+This website was adapted from a custom aviation theme, with content specifically crafted for CP Aviation including:
+
+- Full integration of CP Aviation's branding and messaging
+- "Stop Wondering & Start Flying" hero section
+- Comprehensive service descriptions matching their training programs
+- Vicki Cruse Scholarship feature
+- Real student testimonials from their website
+- Recent student success stories (first solos, new ratings)
+- Fleet information for Cessna, Citabria, and Decathlon aircraft
+
+## Development
 
 ```bash
+# Install dependencies
 npm install
+
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-The dev server runs TinaCMS alongside Next.js so content in `content/pages/home.json` is editable in-browser at `/admin`.
+## Credits
 
-## Content
+Original theme adapted for CP Aviation with full due diligence on content, branding, and messaging from cpaviation.com.
 
-All page copy — hero, training programs, about, Flight Club 805, KCMA field, and footer — lives in `content/pages/home.json` and can be edited through the Tina admin UI.
-
-## Technologies
-
-- Next.js 15 / React 18 / TypeScript
-- Tailwind CSS
-- [TinaCMS](https://tina.io) for visual content editing
-- [GSAP & ScrollTrigger](https://greensock.com/gsap/) for scroll animations
-- [Three.js](https://threejs.org/) for the interactive KCMA airfield scene
-
-## Deployment
-
-Push to the connected Vercel project. Framework preset: Next.js. No additional configuration required.
-
----
-
-Site by [Overlook Strategy](https://overlookstrategy.com).
+© 2026 CP Aviation. All rights reserved.

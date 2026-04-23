@@ -12,9 +12,10 @@ const config: Config = {
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        jacRed: '#DC2626',
-        jacDark: '#111827',
-        jacLight: '#F9FAFB',
+        cpBlue: '#1E40AF',
+        cpBlueLight: '#3B82F6',
+        cpDark: '#111827',
+        cpLight: '#F9FAFB',
         aviationYellow: '#FBBF24',
         runwayGray: '#9CA3AF',
       },

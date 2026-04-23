@@ -1,89 +1,210 @@
 {
   "siteSettings": {
-    "companyName": "Camarillo Flight Instruction",
-    "logoText": "CFI",
-    "contactEmail": "info@camarilloflightinstruction.com",
-    "phone": "805-233-7601",
-    "location": "CAMARILLO AIRPORT, CA (KCMA)",
-    "copyrightYear": "2026"
+    "companyName": "CP Aviation",
+    "logoText": "CP",
+    "contactEmail": "info@cpaviation.com",
+    "phone": "805-525-2138",
+    "phoneDisplay": "(805) 525-2138",
+    "location": "SANTA PAULA AIRPORT, CA (KSZP)",
+    "address": "855 E Santa Maria St, Santa Paula, CA 93060",
+    "copyrightYear": "2026",
+    "foundedYear": "1987",
+    "motto": "Training Safe Pilots"
   },
   "hero": {
-    "headline": "Learn to Fly.",
-    "subheadline": "A good old-fashioned flight school at KCMA — one-on-one instruction, a fleet you actually want to fly, and a pace set by the student. Ventura County since 2009.",
-    "primaryCTAText": "TRAINING",
-    "primaryCTALink": "#services",
-    "secondaryCTAText": "FLEET",
-    "secondaryCTALink": "#projects"
+    "headline": "Stop Wondering & Start Flying!!",
+    "subheadline": "Have you ever wondered what it would be like to fly an aircraft? Stop wondering, and start flying! We offer Introductory (Discovery) Flights where you get to experience the thrill of being in control. CP Aviation has been training pilots since 1987 at Santa Paula Airport (KSZP).",
+    "primaryCTAText": "DISCOVERY FLIGHT",
+    "primaryCTALink": "#contact",
+    "secondaryCTAText": "OUR TRAINING",
+    "secondaryCTALink": "#services",
+    "brochureLink": "https://www.cpaviation.com/images/Brochure_Learn_to_Fly_10.26.24.pdf",
+    "brochureText": "Download Learning to Fly FAQs"
   },
   "specialty": {
     "tagLabel": "805",
-    "title": "Paced to the Student. Not the Spreadsheet.",
-    "body": "Big-box flight schools run on throughput. We run on relationships. Every student at CFI gets their instructor's cell number, a dispatch-ready airplane, and training that adapts to their life — not a conveyor belt of stage checks. The result: pilots who actually know how to fly."
+    "title": "Busy Airport. Real Traffic. Better Pilots.",
+    "body": "Santa Paula Airport is one of the busiest privately owned airfields in the USA. While KSZP is a non-towered airport, the busy traffic patterns mean our students are exposed to real-world flying conditions from day one. Located just a few miles from the beaches of Oxnard and Ventura, and well-known airports like Camarillo and Point Mugu AFB. Whether you want to train on an aircraft with tricycle undercarriage, or improve your skills on one of our tailwheel aircraft, we have the plane for you!"
   },
   "services": {
-    "sectionTitle": "Training & Membership",
+    "sectionTitle": "Training & Programs",
     "items": [
       {
         "title": "Private Pilot",
-        "description": "Your license to adventure. FAA Part 61 instruction paced to your schedule — not ours. Earn your ticket in a diverse fleet of Cessnas, Pipers, and Diamonds hangared on the field.",
+        "description": "Your license to adventure. We cater for a wide range of certificates and ratings, from Private Pilot to Instrument, Commercial, CFI and more. Learn to fly at one of California's most active GA airports with one-on-one instruction from experienced CFIs.",
         "icon": "wings"
       },
       {
         "title": "Instrument Rating",
-        "description": "Turn weather from a showstopper into a strategy. Learn to fly the system, trust the gauges, and get the most out of your certificate — IFR ready in Southern California's busiest airspace.",
+        "description": "Turn weather from a showstopper into a strategy. Train with experienced CFII instructors in Southern California's complex airspace. Master the gauges and fly with confidence in IMC conditions.",
         "icon": "instrument"
       },
       {
-        "title": "Commercial & Beyond",
-        "description": "Career-grade training from Commercial through CFI, CFII, and MEI. Complex and spin endorsements on site. The same instructors who helped you solo will sign you off to teach.",
+        "title": "Commercial & CFI",
+        "description": "Career-grade training from Commercial through CFI and CFII. Trust the experience of CP — celebrating over 30 years of 'Training Safe Pilots'. The same instructors who helped you solo will sign you off to teach.",
         "icon": "commercial"
       },
       {
-        "title": "Flight Club 805",
-        "description": "Members-only fleet access with 24/7 scheduling, priority booking, and discounted wet rates on every airplane we operate. Pay for the flying — not the hangar.",
-        "icon": "club"
+        "title": "EMT & Aerobatics",
+        "description": "Emergency Maneuver Training, spin endorsements, and basic aerobatics since 1987. Home of the Vicki Cruse Memorial Scholarship. Come take a 'spin' with us in our waivered aerobatic practice area just off the runway!",
+        "icon": "acrobatics"
+      },
+      {
+        "title": "Tailwheel Training",
+        "description": "Master the art of tailwheel flying with our American Champion Citabrias. Build stick-and-rudder skills that make you a better pilot in any aircraft. From first-time tailwheel to endorsements and advanced handling.",
+        "icon": "tailwheel"
+      },
+      {
+        "title": "Aircraft Maintenance",
+        "description": "Our maintenance shop specializes in all models of Cessna, Citabrias and Decathlons. We'll get you going. In-house mechanics who know these aircraft inside and out — because we fly them too.",
+        "icon": "wrench"
       }
     ]
   },
   "about": {
-    "title": "About CFI",
-    "paragraph1": "Camarillo Flight Instruction opened in 2009 with one aircraft, one instructor, and one idea: build the flight school we wished existed. Sixteen years later we're still obsessed with the same thing — teaching people to fly, the right way.",
-    "paragraph2": "Our fleet runs Cessna, Piper, and Diamond alongside an Elite simulator, all hangared at KCMA in the heart of Ventura County. Every aircraft is dispatch-ready. Every CFI is paid a living wage. Every student gets their instructor's cell number.",
+    "title": "About CP Aviation",
+    "paragraph1": "CP Aviation has been training pilots since 1987. We're a friendly, family-owned business located at Santa Paula Airport (KSZP), California. In February of 2017, CP Aviation celebrated 30 years of 'Training Safe Pilots'. Trust the experience of CP!",
+    "paragraph2": "Our instructors have many different backgrounds, ranging from ex-waitress to retired heart surgeon. Our team includes Master CFI Judy Phelps and instructor Mark King. We also operate a full maintenance shop specializing in Cessna, Citabrias and Decathlons.",
+    "paragraph3": "We maintain an 'Alert Area' — get familiar with the Santa Paula aerobatic practice area and our unique pattern & approach. Links to weather, checklists, class outlines, places to stay and many of our documents keep you informed throughout your training.",
     "stats": [
       {
-        "value": "$55",
-        "label": "CFI HOURLY RATE",
+        "value": "1987",
+        "label": "TRAINING PILOTS",
         "fullWidth": false
       },
       {
-        "value": "2009",
-        "label": "FOUNDED AT KCMA",
+        "value": "KSZP",
+        "label": "SANTA PAULA AIRPORT",
         "fullWidth": false
       },
       {
-        "value": "FAA Part 61",
+        "value": "Vicki Cruse Scholarship",
         "label": "",
         "fullWidth": true,
-        "subtitle": "Private · Instrument · Commercial · CFI · CFII · MEI",
-        "subtitleBody": "Complex and spin endorsements on the field. Cessna, Piper, and Diamond aircraft plus an Elite simulator — all dispatch-ready."
+        "subtitle": "Emergency Maneuver Training Scholarship",
+        "subtitleBody": "The Scholarship started in 2005. It's awarded each summer to a recipient who is a member of the IAC and holds a pilot certificate, and wishes to pursue spin, unusual attitude and basic aerobatic training. Given in memory of Santa Paula aerobatic champion Vicki Cruse, member of the United States Unlimited Aerobatic Team and president of the International Aerobatic Club (IAC)."
       },
       {
-        "value": "Flight Club 805",
+        "value": "Aircraft Maintenance",
         "label": "",
         "fullWidth": true,
-        "subtitle": "24/7 Fleet Access",
-        "subtitleBody": "A members-only aircraft club for pilots who want to keep flying after the checkride — discounted wet rates, priority scheduling, zero hangar overhead."
+        "subtitle": "Full Service Shop",
+        "subtitleBody": "Specializing in all models of Cessna, Citabrias and Decathlons. Our in-house maintenance team keeps our fleet dispatch-ready and can service your aircraft too."
       }
     ]
   },
   "caseStudy": {
-    "title": "KCMA — Our Home Field",
-    "description": "Camarillo Municipal sits in a rare sweet spot: uncongested pattern, reliable VFR weather nearly year-round, and direct access to Santa Barbara, the Channel Islands, and the LA basin. The 6,013' runway gives us room to teach — and a view of the Santa Monica Mountains that's hard to beat. Home to our",
-    "highlight": "Cessna · Piper · Diamond fleet",
+    "title": "KSZP — Our Home Field",
+    "description": "Santa Paula Airport sits in a rare sweet spot: one of the busiest privately owned airfields in the USA, surrounded by mountains, coastline, and LA's complex airspace. The non-towered field gives you real traffic experience from day one, and our waivered aerobatic box is just minutes off the runway. KSZP is just a few miles from the beaches of Oxnard and Ventura, and well-known airports like Camarillo and Point Mugu AFB.",
+    "highlight": "Cessna · Citabria · Decathlon fleet",
     "interactionHint": "DRAG/MOVE MOUSE TO EXPLORE THE FIELD"
+  },
+  "testimonials": {
+    "sectionTitle": "What Our Students Say",
+    "items": [
+      {
+        "quote": "Everyone at CP AVIATION — from the owners, fuel guys, behind the desk, mechanics, and all the CFI's — have helped me grow my knowledge. They all step in and help me learn. I didn't know if I could do this, yet now with this school/family I'm solo and on my way. I just can't thank CP enough. It's been my life goal. I'm over 40 and it is totally happening. Everyone is pumped up to see me excited. Also I feel very safe. I have two young daughters and I wouldn't want a push in the wrong way. I actually got them both discovery flights a few months back. I love this place!",
+        "author": "Keith Harteau",
+        "date": "2024-05-16",
+        "type": "Flight training"
+      },
+      {
+        "quote": "My son and I went to CP for a week in October of 2011, to take aerobatics. My instructor was Judy, and she deserves every bit of being a Master CFI. Judy is really good at instruction, not only in the air but on the ground as well. She even invited us to attend the award ceremony when she received Master CFI for the 2nd time. I learned a whole lot, and even came away with a Spin Endorsement. I also learned a lot on tail wheel techniques. I am thinking of returning there as now I can drive there in a day to finish my tail wheel, and I will pay the extra for Judy, as she is worth it. She has lots of patience with her students and is always pleasant, and in sync with her students. You cannot go wrong taking lessons from CP.",
+        "author": "Ronald Malavotte",
+        "date": "2020-10-20",
+        "type": "Flight training"
+      },
+      {
+        "quote": "Using the Michael E. Blackstone Memorial Scholarship from the Fullerton 99s was an AERODYNAMICALLY ENLIGHTENING experience. Couldn't ask for finer aircraft or instructor and cannot wait to complete Module 3! Thanks Judy :-)",
+        "author": "Dana Glidden",
+        "date": "2020-06-23",
+        "type": "Flight training"
+      },
+      {
+        "quote": "So for my 40th birthday my lady got me an aerobatic flight. Something I had always wanted to do. So it was scheduled for my birthday, we showed up and everyone in the front office was simply down to earth, friendly and kind. I meet my pilot Mark, now that guy is one funny person. He is an amazing pilot! I had the best birthday ever thanks to everyone at CP aviation! Hands down the best experience ever!",
+        "author": "Jon Conley",
+        "date": "2018-12-21",
+        "type": "Flight training"
+      },
+      {
+        "quote": "Needed my spin endorsement for my CFI rating. Mark King did my instruction and he was wonderful. Fun to fly with and very knowledgeable. A highly recommended 'eye-opener' course that I believe everyone should do at least once (better still regularly).",
+        "author": "Ian Shere",
+        "date": "2018-10-21",
+        "type": "Flight training"
+      },
+      {
+        "quote": "I was reintroduced to general aviation in 2013 and decided that it was time to get my private pilot's license. Fortunately, a good friend introduced me to Santa Paula Airport and CP Aviation. I trained with Judy Phelps, Owner of CP Aviation and instructor Mark King. The aviation community and atmosphere there is very supportive, it is the perfect place to learn to fly. As all pilots know, a pilot's license is a license to learn to fly. There is always more to learn. CP Aviation offers advanced flight training: tailwheel, Emergency Maneuver and Aerobatic training. I recently had the pleasure of completing the EMT training at CP Aviation. It was a great confidence builder, has improved my pilot skills and was great FUN!",
+        "author": "Lisa Kienholz",
+        "date": "2017-01-23",
+        "type": "Flight training"
+      },
+      {
+        "quote": "Hi Mark, Hi Judy I'm finally back in cold and snowy Switzerland and I would like to say thank you for the great time I had at CP Aviation again. I'm sure I improved my flying skills and made a lot of new experiences! Very friendly and helpful staff, well maintained aircrafts and beautiful Santa Paula Airport! Hope I will be able to visit CP Aviation again in future. Thanks again all the best!",
+        "author": "Rene",
+        "date": "2017-01-23",
+        "type": "Flight training"
+      },
+      {
+        "quote": "In 2015 I was selected as the Vickie Cruse Memorial Scholarship winner for CP Aviation's full EMT/Acro course developed by Rich Stowell. CP Aviation's reputation is well known, reaching all the way out to New York State where I live and work as a flight instructor. I am delighted to report that CP Aviation exceeded all my expectations. Judy Phelps and her team presented a challenging course that required me to fly at my best, but always gave me the tools I needed to understand the material and succeed. The aircraft were clean and well maintained, ready for dispatch and flew beautifully. With a waivered aerobatic box just a few miles off the end of the runway, we didn't waste any time shuttling back and forth to the practice area. Most importantly, the teaching was highly professional. I know that I am a better pilot and a safer flight instructor thanks to the training I received there.",
+        "author": "Wayne Bezner Kerr CFI/MEI/DPE",
+        "date": "2017-01-23",
+        "type": "Flight training"
+      }
+    ]
+  },
+  "recentSuccess": {
+    "sectionTitle": "Recent Student Success",
+    "categories": [
+      {
+        "name": "First Solos",
+        "items": [
+          {
+            "title": "First Solo - Mohammed Altalieiyah",
+            "date": "March 24th, 2026",
+            "instructor": "CFI Alessandra Rizzo"
+          },
+          {
+            "title": "First Solo - Kseniia Doroshenko",
+            "date": "March 24th, 2026",
+            "instructor": "CFI Tayler de Castro"
+          }
+        ]
+      },
+      {
+        "name": "New Certificates & Ratings",
+        "items": [
+          {
+            "title": "Sport Pilot - Ian Peyton",
+            "date": "March 27th, 2026",
+            "instructor": "CFI Alessandra Rizzo"
+          },
+          {
+            "title": "Instrument Rating - Lauren Mareno",
+            "date": "March 15th, 2026",
+            "instructor": "CFII Bodhi McDonald"
+          }
+        ]
+      },
+      {
+        "name": "Tailwheel & EMT",
+        "items": [
+          {
+            "title": "Tailwheel Endorsement - Gavin Elliott",
+            "date": "March 9th, 2026",
+            "instructor": "CFI Adam Jones"
+          },
+          {
+            "title": "Tailwheel Endorsement - Paul Hill",
+            "date": "February 11th, 2026",
+            "instructor": "CFI Bodhi McDonald"
+          }
+        ]
+      }
+    ]
   },
   "footer": {
     "ctaText": "Cleared for Takeoff.",
-    "runwayNumber": "26"
+    "runwayNumber": "04",
+    "copyright": "© 1996-2026 CP Aviation | All rights reserved."
   }
 }

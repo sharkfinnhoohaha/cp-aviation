@@ -13,13 +13,13 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F9FAFB; }
 ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #DC2626; }
+::-webkit-scrollbar-thumb:hover { background: #1E40AF; }
 
 #cursor {
     position: fixed;
     top: 0; left: 0;
     width: 16px; height: 16px;
-    background-color: rgba(220, 38, 38, 0.5);
+    background-color: rgba(30, 64, 175, 0.5);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -30,7 +30,7 @@ body {
     width: 40px !important;
     height: 40px !important;
     background-color: transparent !important;
-    border: 1px solid #DC2626;
+    border: 1px solid #1E40AF;
 }
 
 .hs-solid {
@@ -63,7 +63,7 @@ body {
 }
 
 .papi-white { background-color: #ffffff; border: 1px solid #D1D5DB; box-shadow: 0 0 4px rgba(255,255,255,0.8); }
-.papi-red { background-color: #DC2626; box-shadow: 0 0 4px rgba(220,38,38,0.5); }
+.papi-red { background-color: #1E40AF; box-shadow: 0 0 4px rgba(30,64,175,0.5); }
 
 .glass-panel-light {
     background: rgba(255, 255, 255, 0.85);
