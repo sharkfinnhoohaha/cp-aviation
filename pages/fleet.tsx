@@ -153,6 +153,10 @@ export default function FleetPage() {
         <title>Fleet | CP Aviation — Santa Paula Airport (KSZP)</title>
         <meta name="description" content="CP Aviation's training fleet at Santa Paula Airport: Cessna 172 Skyhawks, American Champion Citabrias, and Decathlons. Maintained in-house since 1987." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Fleet | CP Aviation — Santa Paula Airport (KSZP)" />
+        <meta property="og:description" content="Cessna 172 Skyhawks, American Champion Citabrias, and Decathlons. All maintained in-house at KSZP." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-image.jpg" />
       </Head>
       <div className="antialiased selection:bg-cpRed selection:text-white font-sans">
         <Navigation siteSettings={siteSettings} />
