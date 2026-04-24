@@ -123,6 +123,10 @@ export default function PricingPage() {
         <title>Training & Rates | CP Aviation — Santa Paula (KSZP)</title>
         <meta name="description" content="Training programs, instruction rates, and package details at CP Aviation. Private, Instrument, Commercial, CFI, tailwheel, and Emergency Maneuver Training at Santa Paula Airport." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Training & Rates | CP Aviation — Santa Paula (KSZP)" />
+        <meta property="og:description" content="Private, Instrument, Commercial, CFI, tailwheel, and EMT training at Santa Paula Airport. Training Safe Pilots since 1987." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-image.jpg" />
       </Head>
       <div className="antialiased selection:bg-cpRed selection:text-white font-sans">
         <Navigation siteSettings={siteSettings} />

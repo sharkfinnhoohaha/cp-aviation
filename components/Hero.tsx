@@ -8,6 +8,8 @@ interface HeroProps {
     primaryCTALink: string
     secondaryCTAText: string
     secondaryCTALink: string
+    brochureLink?: string
+    brochureText?: string
   }
 }
 
@@ -74,6 +76,24 @@ export default function Hero({ hero }: HeroProps) {
             {hero.secondaryCTAText}
           </a>
         </div>
+        {hero.brochureLink && (
+          <div className="mt-6 opacity-0 hero-fade">
+            <a
+              href={hero.brochureLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-xs text-gray-400 hover:text-cpRed transition-colors interactive"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <line x1="9" y1="15" x2="15" y2="15" />
+              </svg>
+              {hero.brochureText ?? 'Download Learning to Fly FAQs'}
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3">

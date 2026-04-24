@@ -5,10 +5,8 @@
   "engine": "Lycoming",
   "horsepower": "160-180 HP",
   "cruiseSpeed": "120 KTAS",
-  "range": "",
   "category": "Primary Trainer",
-  "wetRate": "Contact for rates",
-  "memberRate": "",
+  "rate": "Contact for rates",
   "description": "The world's most popular training aircraft. Our Cessna 172 fleet includes dispatch-ready trainers perfect for Private Pilot and Instrument training at Santa Paula. Tricycle gear makes it the ideal first airplane for new pilots. All aircraft maintained by our in-house shop specializing in Cessna models.",
   "image": "",
   "cockpitImage": ""

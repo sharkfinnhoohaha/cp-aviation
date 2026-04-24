@@ -23,7 +23,7 @@ CP Aviation has been "Training Safe Pilots" since 1987. Located at one of the bu
 ## Location
 
 Santa Paula Airport (KSZP)
-855 E Santa Maria St
+830 E Santa Maria St #301
 Santa Paula, CA 93060
 
 Just minutes from the beaches of Ventura and Oxnard, with easy access to Camarillo and Point Mugu.

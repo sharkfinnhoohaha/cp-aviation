@@ -11,6 +11,7 @@ interface AboutProps {
     title: string
     paragraph1: string
     paragraph2: string
+    paragraph3?: string
     stats: Stat[]
   }
 }
@@ -35,11 +36,18 @@ export default function About({ about }: AboutProps) {
                 {about.paragraph1}
               </p>
             </div>
-            <div className="fly-wrap">
+            <div className="fly-wrap mb-6">
               <p className="fly-text scroll-fly text-gray-600 font-light leading-relaxed">
                 {about.paragraph2}
               </p>
             </div>
+            {about.paragraph3 && (
+              <div className="fly-wrap">
+                <p className="fly-text scroll-fly text-gray-600 font-light leading-relaxed">
+                  {about.paragraph3}
+                </p>
+              </div>
+            )}
           </div>
           <div className="md:col-span-7 grid grid-cols-2 gap-4">
             {regularStats.map((stat, i) => (
